@@ -1,0 +1,26 @@
+{%  extends 'main/allout.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{title}}</h1>
+        {% filter upper %}
+        <p>На нашем сайте предоставлена простая информация</p>
+        {% endfilter %}
+        <button class="btn btn-warning">{% filter upper %}На страницу про нас {% endfilter %}</button>
+
+        {% for el in values %}
+        <p>{{el| upper}}</p>
+        {% endfor %}
+
+        {% for el in obj %}
+            {% if el == 'car' %}
+                {% filter upper %}
+                    <p>{{el}}</p>
+                {% endfilter %}
+            {% endif %}
+        {% endfor %}
+
+    </div>
+{% endblock %}
